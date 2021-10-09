@@ -72,7 +72,10 @@ Node* reverse_print(Node* head)
 		return head;
 	
 	Node* x=reverse_print(head->next);
-	head->next->next=head;
+	Node* temp=x;
+	while(temp->next)
+		temp=temp->next;
+	temp->next=head;
 	head->next=NULL;
 	return x;
 }
